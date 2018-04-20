@@ -2,12 +2,12 @@
 Exam 2, problem 3.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  April 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and James (Bo) Geyer.  April 2018.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 ###############################################################################
-# TODO: 2.
+# Done: 2.
 #   In this problem, you will go through the methods of the  Person  class
 #   that is defined below, one by one, in the order that they appear.
 #   For each method:
@@ -30,6 +30,18 @@ def main():
     p1 = Person(9)
     print(p1.get_age())  # Should print 9
 
+    p1.celebrate_birthday()
+    print(p1.get_age())
+
+    p1.celebrate_birthdays(10)
+    print(p1.get_age())
+
+    p2 = p1.older_person()
+    print(p2.get_age())
+
+    p2.celebrate_birthday()
+    print(p2.get_age())
+
     # -------------------------------------------------------------------------
     # WRITE MORE CODE HERE AS NEEDED to TEST the code that you write
     #   in the  Person  class.  You are graded only on your implementation of
@@ -40,35 +52,42 @@ def main():
 
 class Person(object):
     def __init__(self, age):
+        self.age = age
         """
         What comes in:  The Person's age.
         Side effects: Sets instance variables as needed by the other methods.
         """
-        # TODO: Implement and test this method.
+        # Done: Implement and test this method.
 
     def get_age(self):
+        return self.age
         """ Returns this Person's age. """
-        # TODO: Implement and test this method.
+        # Done: Implement and test this method.
 
     def celebrate_birthday(self):
+        self.age = self.age + 1
+        print('Happy birthday!')
         """
         Increments this Person's age.
         ALso prints 'Happy birthday!'.
         """
-        # TODO: Implement and test this method.
+        # Done: Implement and test this method.
 
     def celebrate_birthdays(self, n):
+        for k in range(n):
+            self.celebrate_birthday()
         """
         What comes in: A non-negative integer n.
         Side effects:  Calls the  celebrate_birthday  method  n  times.
         """
-        # TODO: Implement and test this method.
+        # Done: Implement and test this method.
 
     def older_person(self):
+        return Person(self.age * 2)
         """
         Returns a new Person whose age is twice this Person's age.
         """
-        # TODO: Implement and test this method.
+        # Done: Implement and test this method.
 
 
 # -----------------------------------------------------------------------------
